@@ -1,0 +1,104 @@
+<style>
+    .main {                                                                                                                                                                                  
+        border-radius: 25px;                                                                                                                                                                     
+        background: #f0f0f0;                                                                                                                                                                     
+        padding: 20px;                                                                                                                                                                           
+        margin: 50px;                                                                                                                                                                         
+        width: 40%;                                                                                                                                                                              
+        height: 8%;                                                                                                                                                                            
+        box-shadow:         3px 3px 5px 6px #ccc;                                                                                                                                            
+        font-size: 18px;                                                                                                                                                                     
+        font-family: monospace;                                                                                                                                                              
+        font-weight: bold;                                                                                                                                                                   
+        color: #7f7f7f;                                                                                                                                                                                                                                                                                                                                                                   
+        }
+    .incodesmall {                                                                                                                                                                       
+        background-color: transparent;                                                                                                                                                       
+        border: 4px solid;                                                                                                                                                                   
+        height: 2em;                                                                                                                                                                        
+        width: 8em;                                                                                                                                                                         
+        color: #7f7f7f;                                                                                                                                                                      
+        border-radius: 5px;                                                                                                                                                                  
+        font-size: 18px;                                                                                                                                                                     
+        font-family: monospace;                                                                                                                                                              
+        font-weight: bold;                                                                                                                                                                   
+        padding-left: 5px;                                                                                                                                                                   
+        padding-right: 5px;                                                                                                                                                                  
+        margin-bottom: 15px;                                                                                                                                                                 
+        text-align: left;                                                                                                                                                                    
+    }
+    .buttonSub{                                                                                                                                                                              
+        display: inline-block;                                                                                                                                                               
+        color: white;                                                                                                                                                                        
+        text-decoration: none;                                                                                                                                                               
+        padding: .1em 1em;                                                                                                                                                                   
+        outline: none;                                                                                                                                                                       
+        border-width: 4px 0;                                                                                                                                                                 
+        border-style: solid none;                                                                                                                                                            
+        border-color: #D77206 #000 #D77206;                                                                                                                                                  
+        border-radius: 6px;                                                                                                                                                                  
+        background: #E38916;                                                                                                                                                                 
+        transition: 0.2s;                                                                                                                                                                    
+        font-size: 18px;                                                                                                                                                                     
+        font-weight: bold;                                                                                                                                                                   
+        height: 2em;                                                                                                                                                                        
+        width: 10em;                                                                                                                                                                        
+        margin: 15px;                                                                                                                                                                        
+    }           
+</style> 
+
+<center>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>                                                                              
+    <script type="text/javascript">                                                                                                                                                              
+                                                                                                                                                                                                    
+    function send_delete(method,url,key,value,ttl){         
+        $.ajax({
+        url: url+'?key='+key+'&value='+value+'&ttl='+ttl,
+        type: method,
+        success: function(result) {
+            //alert(result+" key="+key+" value="+value);
+            alert(result);
+            console.log(result);
+        },
+        error: function (err)  { alert ("Error"); console.log(err);}
+        });
+    }
+    </script>
+
+<div class="main">
+    <input type="text" class="incodesmall" value="key10"  id="key_post">
+    <input type="text" class="incodesmall" value="val1"  id="value_post">
+    <input type="text" class="incodesmall" value="6" name="ttl" id="ttl_post">
+    <input type="button" value="send_post_ajax" class="buttonSub" 
+        onclick="send_delete('POST','/create',
+            document.getElementById('key_post').value,
+            document.getElementById('value_post').value,
+            document.getElementById('ttl_post').value);" >
+</div>
+<div class="main">   
+    <input type="text" class="incodesmall" value="key10" id="key_get">
+    <input type="button" value="send_get_ajax" class="buttonSub" 
+        onclick="send_delete('GET','/read',
+            document.getElementById('key_get').value);" >
+</div>
+<div class="main">
+    <input type="text" class="incodesmall" value="key10" id="key_put">
+    <input type="text" class="incodesmall" value="val3" id="value_put">
+    <input type="text" class="incodesmall" value="12" id="ttl_put">
+    <input type="button" value="send_put_ajax" class="buttonSub" 
+        onclick="send_delete('PUT','/update',
+            document.getElementById('key_put').value,
+            document.getElementById('value_put').value,
+            document.getElementById('ttl_put').value);" >           
+</div>
+<div class="main">      
+    <input type="text" class="incodesmall" value="key10" id="key_delete">
+    <input type="button" value="send_delete_ajax" class="buttonSub" 
+        onclick="send_delete('DELETE','/delete',
+            document.getElementById('key_delete').value);" >  
+
+</div>
+<div>
+
+</div>
+</center>

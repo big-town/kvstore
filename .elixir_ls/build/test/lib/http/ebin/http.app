@@ -1,0 +1,9 @@
+{application,http,
+             [{applications,[kernel,stdlib,elixir,logger,cowboy,plug,
+                             plug_cowboy]},
+              {description,"http"},
+              {modules,['Elixir.Kvstore2','Elixir.Kvstore.Router',
+                        'Elixir.Kvstore.Storage','Elixir.Kvstore.Utils']},
+              {registered,[]},
+              {vsn,"0.1.0"},
+              {mod,{'Elixir.Kvstore2',[]}}]}.
